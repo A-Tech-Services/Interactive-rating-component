@@ -1,28 +1,27 @@
-let button = document.getElementsByClassName("btn");
+let button = Array.from(document.getElementsByClassName("btn"));
 let rateResult = document.querySelector(".rating");
 
-button.addEventListener("click", () => {
-    button.classList.add("active"), button = button.innerText;
-})
+let btnClicked = false;
+
+
+button.map(btn => {
+        btn.addEventListener("click", () => {
+            btn.classList.toggle("active");
+            btnClicked = true;
+    });
+});
 
 
 
-// function rate(){
-//     button.addEventListener("click", () => {
-//         switch(button.innerText){
-//             case 1:
-//                 rateResult.innerText = `You selected ${button.innerText} out of 5`;
-//             case 2:
-//                 rateResult.innerText = `You selected ${button.innerText} out of 5`;
-//             case 3:
-//                 rateResult.innerText = `You selected ${button.innerText} out of 5`;
-//             case 4:
-//                 rateResult.innerText = `You selected ${button.innerText} out of 5`;
-//             case 5:
-//                 rateResult.innerText = `You selected ${button.innerText} out of 5`;
-//             default:
-//                 rateResult.innerText = "Error with our program";
 
-//         }
-//     });
-// }
+
+
+
+function rate(){
+    if(btnClicked){
+        window.location.href = "http://127.0.0.1:5500/result.html";
+    }
+}
+
+rateResult.innerText = `You selected 4 out of 5`;
+
